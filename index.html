@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sporgate</title>
+</head>
+<body>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#0B0B0B;color:#fff;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:#C8FF2C;color:#0B0B0B}
+  a{color:inherit;text-decoration:none}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+  @keyframes floatY2{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+  @keyframes glowPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes lineGrow{0%{background-position:0 -400px}100%{background-position:0 0}}
+  ::-webkit-scrollbar{height:8px;width:8px}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:8px}
+  @media(max-width:1024px){
+    #hero{grid-template-columns:1fr !important;gap:60px !important;padding-top:56px !important}
+    #hero h1{font-size:56px !important}
+    #feature-grid{grid-template-columns:repeat(2,1fr) !important}
+    #showcase{grid-template-columns:1fr !important}
+    #biz-card{grid-template-columns:1fr !important;padding:40px !important}
+    #testimonials{grid-template-columns:1fr !important}
+    .nav-links,.nav-partner{display:none !important}
+  }
+  @media(max-width:640px){
+    #feature-grid{grid-template-columns:1fr !important}
+    #hero h1{font-size:42px !important}
+    nav{padding:16px 22px !important}
+    section,footer{padding-left:22px !important;padding-right:22px !important}
+  }
+</style>
+
+
+<div style="position:relative;width:100%;max-width:100vw;background:#0B0B0B">
+
+  <!-- ambient green glows -->
+  <div style="position:absolute;top:-140px;right:-180px;width:720px;height:720px;background:radial-gradient(circle,rgba(200,255,44,.20),transparent 62%);filter:blur(40px);pointer-events:none;z-index:0"></div>
+  <div style="position:absolute;top:1400px;left:-260px;width:640px;height:640px;background:radial-gradient(circle,rgba(200,255,44,.12),transparent 62%);filter:blur(50px);pointer-events:none;z-index:0"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(11,11,11,.6);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)">
+    <div style="display:flex;align-items:center;gap:11px">
+      <div style="width:30px;height:30px;border-radius:9px;background:#C8FF2C;display:flex;align-items:center;justify-content:center">
+        <div style="width:11px;height:11px;border-radius:50%;background:#0B0B0B"></div>
+      </div>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em">spor<span style="font-weight:400">gate</span></span>
+    </div>
+    <div class="nav-links" style="display:flex;align-items:center;gap:38px;font-size:15px;color:#B5B5B5;font-weight:500">
+      <a href="#features" style-hover="color:#fff">Özellikler</a>
+      <a href="#explore" style-hover="color:#fff">Keşfet</a>
+      <a href="#how" style-hover="color:#fff">Nasıl Çalışır</a>
+      <a href="#business" style-hover="color:#fff">İşletmeler İçin</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#business" class="nav-partner" style="font-size:15px;font-weight:600;color:#fff;padding:11px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.14)" style-hover="border-color:rgba(255,255,255,.35)">Partner Ol</a>
+      <a href="#download" style="font-size:15px;font-weight:700;color:#0B0B0B;background:#C8FF2C;padding:11px 20px;border-radius:14px" style-hover="background:#d6ff54">Keşfetmeye Başla</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:96px 48px 80px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center">
+    <div data-reveal="" style="transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)">
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:100px;border:1px solid rgba(200,255,44,.28);background:rgba(200,255,44,.06);font-size:13px;font-weight:600;color:#C8FF2C;margin-bottom:30px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#C8FF2C;box-shadow:0 0 10px #C8FF2C"></span>
+        Tek hesap. Tüm sporlar.
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:74px;line-height:1.02;letter-spacing:-.035em;margin-bottom:26px">
+        Bir Sonraki Antrenmanını Bul.<br><span style="color:#C8FF2C">Anında Rezervasyon Yap.</span>
+      </h1>
+      <p style="font-size:19px;line-height:1.6;color:#B5B5B5;max-width:490px;margin-bottom:38px">
+        Yüzlerce spor salonu, stüdyo ve spor deneyimini tek hesapla keşfet. Padel kortlarından pilatese — hepsini saniyeler içinde rezerve et.
+      </p>
+      <div style="display:flex;gap:15px;flex-wrap:wrap">
+        <a href="#explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#0B0B0B;background:#C8FF2C;padding:16px 28px;border-radius:16px;box-shadow:0 12px 40px rgba(200,255,44,.28)" style-hover="transform:translateY(-2px);box-shadow:0 18px 50px rgba(200,255,44,.4)">Keşfetmeye Başla →</a>
+        <a href="#business" style="display:inline-flex;align-items:center;font-size:16px;font-weight:600;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);padding:16px 28px;border-radius:16px;backdrop-filter:blur(10px)" style-hover="background:rgba(255,255,255,.1)">Partner Ol</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:30px;margin-top:46px">
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700">1,200+</div><div style="font-size:13px;color:#B5B5B5">Mekan</div></div>
+        <div style="width:1px;height:34px;background:rgba(255,255,255,.12)"></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700">40+</div><div style="font-size:13px;color:#B5B5B5">Spor</div></div>
+        <div style="width:1px;height:34px;background:rgba(255,255,255,.12)"></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700">4.9★</div><div style="font-size:13px;color:#B5B5B5">Uygulama puanı</div></div>
+      </div>
+    </div>
+
+    <!-- phone mockup -->
+    <div style="position:relative;display:flex;justify-content:center">
+      <div style="position:absolute;top:40px;width:420px;height:520px;background:radial-gradient(circle,rgba(200,255,44,.28),transparent 60%);filter:blur(20px);animation:glowPulse 6s ease-in-out infinite;z-index:0"></div>
+      <div style="position:relative;z-index:2;animation:floatY 7s ease-in-out infinite">
+        <div style="width:312px;height:640px;border-radius:46px;background:#000;border:1px solid rgba(255,255,255,.14);padding:10px;box-shadow:0 40px 90px rgba(0,0,0,.65)">
+          <div style="width:100%;height:100%;border-radius:38px;background:#0B0B0B;overflow:hidden;position:relative">
+            <!-- app: home -->
+            <div style="padding:18px 18px 0">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+                <div><div style="font-size:12px;color:#B5B5B5">Günaydın</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px">Harekete hazır mısın?</div></div>
+                <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2a2a2a,#0e0e0e);border:1px solid rgba(255,255,255,.1)"></div>
+              </div>
+              <div style="margin-top:16px;display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:15px;background:#151515;border:1px solid rgba(255,255,255,.07)">
+                <div style="width:14px;height:14px;border-radius:50%;border:2px solid #B5B5B5"></div>
+                <span style="font-size:13px;color:#B5B5B5">Salon, padel, yoga ara…</span>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:14px;overflow:hidden">
+                <div style="padding:8px 14px;border-radius:100px;background:#C8FF2C;color:#0B0B0B;font-size:12px;font-weight:700;white-space:nowrap">Yakınımda</div>
+                <div style="padding:8px 14px;border-radius:100px;background:#151515;font-size:12px;font-weight:600;color:#B5B5B5;white-space:nowrap">Padel</div>
+                <div style="padding:8px 14px;border-radius:100px;background:#151515;font-size:12px;font-weight:600;color:#B5B5B5;white-space:nowrap">Salon</div>
+              </div>
+            </div>
+            <div style="padding:16px 18px 0">
+              <div style="border-radius:18px;overflow:hidden;height:150px;background:linear-gradient(160deg,#1c2a10,#0e0e0e);border:1px solid rgba(255,255,255,.06);position:relative;display:flex;align-items:flex-end;padding:14px">
+                <div style="position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(200,255,44,.05) 0 12px,transparent 12px 24px)"></div>
+                <div style="position:absolute;top:12px;right:12px;padding:5px 9px;border-radius:100px;background:rgba(11,11,11,.7);backdrop-filter:blur(6px);font-size:11px;font-weight:700;color:#C8FF2C">₺18/sa</div>
+                <div style="position:relative">
+                  <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px">Elite Padel Kulübü</div>
+                  <div style="font-size:11px;color:#B5B5B5">1.2 km · ★ 4.9 · Şimdi müsait</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px;margin-top:12px">
+                <div style="flex:1;border-radius:16px;height:104px;background:linear-gradient(160deg,#1a1a1a,#0e0e0e);border:1px solid rgba(255,255,255,.06);padding:12px;display:flex;flex-direction:column;justify-content:flex-end">
+                  <div style="position:absolute"></div>
+                  <div style="font-size:13px;font-weight:700">Zen Yoga Stüdyosu</div>
+                  <div style="font-size:10px;color:#B5B5B5">0.8 km · ★ 4.8</div>
+                </div>
+                <div style="flex:1;border-radius:16px;height:104px;background:linear-gradient(160deg,#161e0c,#0e0e0e);border:1px solid rgba(255,255,255,.06);padding:12px;display:flex;flex-direction:column;justify-content:flex-end">
+                  <div style="font-size:13px;font-weight:700">CoreFit Salon</div>
+                  <div style="font-size:10px;color:#B5B5B5">2.0 km · ★ 4.7</div>
+                </div>
+              </div>
+            </div>
+            <!-- tab bar -->
+            <div style="position:absolute;bottom:0;left:0;right:0;height:62px;background:rgba(11,11,11,.9);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-around;padding:0 10px">
+              <div style="width:20px;height:20px;border-radius:6px;background:#C8FF2C"></div>
+              <div style="width:20px;height:20px;border-radius:50%;border:2px solid #4a4a4a"></div>
+              <div style="width:20px;height:20px;border-radius:5px;border:2px solid #4a4a4a"></div>
+              <div style="width:20px;height:20px;border-radius:50%;border:2px solid #4a4a4a"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- floating chip -->
+      <div style="position:absolute;bottom:70px;left:-6px;z-index:3;animation:floatY2 6s ease-in-out infinite;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px;background:rgba(21,21,21,.75);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 50px rgba(0,0,0,.4)">
+        <div style="width:34px;height:34px;border-radius:11px;background:#C8FF2C;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0B0B0B;font-size:13px">QR</div>
+        <div><div style="font-size:13px;font-weight:700">Giriş yapıldı ✓</div><div style="font-size:11px;color:#B5B5B5">Elite Padel Kulübü</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUSTED BY ===================== -->
+  <section style="position:relative;z-index:1;padding:40px 0 70px;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)">
+    <p style="text-align:center;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B5B5B5;margin-bottom:34px;font-weight:600">Ülke genelinde önde gelen mekanlar tarafından tercih ediliyor</p>
+    <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div style="display:flex;gap:70px;width:max-content;animation:marquee 34s linear infinite;padding:0 35px">
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">GYM CO</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">Studio Nova</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">FIELD·FC</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">PadelHaus</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">AquaLine</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">FitCenter</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">GYM CO</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">Studio Nova</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">FIELD·FC</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">PadelHaus</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">AquaLine</div>
+        <div data-trust="" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:rgba(255,255,255,.42);letter-spacing:-.02em">FitCenter</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section id="features" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:120px 48px">
+    <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);max-width:640px;margin-bottom:60px">
+      <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">Her şey tek bir yerde</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-.03em">Sporu zahmetsiz kılmak için tasarlandı.</h2>
+    </div>
+    <div id="feature-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 0ms,transform .7s cubic-bezier(.16,1,.3,1) 0ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">◎</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Yakınları Keşfet</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Çevrendeki spor mekanları, mesafe ve puana göre sıralanır.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 40ms,transform .7s cubic-bezier(.16,1,.3,1) 40ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">⚡</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Saniyeler İçinde Rezerve Et</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Gerçek zamanlı saatler, anında onay, sıfır telefon.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 80ms,transform .7s cubic-bezier(.16,1,.3,1) 80ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">✦</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Üye Fiyatları</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Başka hiçbir yerde bulamayacağın özel fiyatlar.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 120ms,transform .7s cubic-bezier(.16,1,.3,1) 120ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">▢</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">QR ile Giriş</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Doğruca içeri gir. Tek tarama ve antrenmana başla.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 160ms,transform .7s cubic-bezier(.16,1,.3,1) 160ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">◷</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Canlı Müsaitlik</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Açık kortları ve dersleri gerçek zamanlı gör.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 200ms,transform .7s cubic-bezier(.16,1,.3,1) 200ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">♥</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Favoriler</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Sevdiğin mekanları kaydet, tek dokunuşla tekrar rezerve et.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 240ms,transform .7s cubic-bezier(.16,1,.3,1) 240ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">★</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Yorumlar</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Gerçek sporculardan oluşan bir topluluktan dürüst puanlar.</div>
+      </div>
+      <div data-reveal class="feat" style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 280ms,transform .7s cubic-bezier(.16,1,.3,1) 280ms,border-color .3s,background .3s;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:26px 24px;cursor:default"
+        onmouseenter="this.style.borderColor='rgba(200,255,44,.5)';this.style.background='rgba(200,255,44,.05)';this.style.transform='translateY(-4px)';this.querySelector('.ic').style.background='#C8FF2C';this.querySelector('.ic').style.color='#0B0B0B'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.08)';this.style.background='rgba(255,255,255,.03)';this.style.transform='none';this.querySelector('.ic').style.background='rgba(200,255,44,.12)';this.querySelector('.ic').style.color='#C8FF2C'">
+        <div class="ic" style="width:46px;height:46px;border-radius:14px;background:rgba(200,255,44,.12);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-size:20px;transition:.3s;margin-bottom:20px">⛨</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-bottom:9px;letter-spacing:-.01em">Güvenli Ödeme</div>
+        <div style="font-size:14px;color:#B5B5B5;line-height:1.55">Kart, Apple ve Google Pay ile şifreli ödeme.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPLORE SPORTS ===================== -->
+  <section id="explore" style="position:relative;z-index:1;padding:60px 0 120px">
+    <div style="max-width:1320px;margin:0 auto;padding:0 48px;display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px">
+      <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)">
+        <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">40+ SPOR</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-.03em">Sporunu keşfet.</h2>
+      </div>
+      <p style="color:#B5B5B5;font-size:15px;max-width:280px;text-align:right">Yüksek tempolusundan sakinine. Kaydırarak disiplinini bul.</p>
+    </div>
+    <div id="sports-scroll" style="display:flex;gap:16px;overflow-x:auto;padding:6px 48px 24px;scroll-snap-type:x mandatory">
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#1e2a12,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// salon fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Salon</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#241a2a,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// pilates fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Pilates</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#12222a,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// yoga fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Yoga</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#2a1a12,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// crossfit fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">CrossFit</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#1a2a12,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// padel fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Padel</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#122a1a,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// futbol fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Futbol</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#2a2012,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// basketbol fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Basketbol</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#122232,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// yüzme fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Yüzme</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#1f2a12,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// tenis fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Tenis</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#2a1218,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// dövüş sanatları fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Dövüş Sanatları</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#182a12,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// koşu fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Koşu</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+      <div style="scroll-snap-align:start;flex:0 0 260px;height:340px;border-radius:24px;overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(160deg,#122a26,#0B0B0B);border:1px solid rgba(255,255,255,.07);transition:transform .4s cubic-bezier(.16,1,.3,1)"
+        onmouseenter="this.style.transform='translateY(-6px)';this.querySelector('.ov').style.opacity='1';this.querySelector('.ar').style.transform='translateX(4px)'"
+        onmouseleave="this.style.transform='none';this.querySelector('.ov').style.opacity='0';this.querySelector('.ar').style.transform='none'">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(255,255,255,.03) 0 16px,transparent 16px 32px)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.85))"></div>
+        <div class="ov" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(200,255,44,.14),transparent 60%);opacity:0;transition:.4s"></div>
+        <div style="position:absolute;top:16px;left:16px;font-size:11px;font-family:monospace;color:rgba(255,255,255,.4)">// bisiklet fotoğrafı</div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em">Bisiklet</div>
+          <div class="ar" style="width:34px;height:34px;border-radius:50%;background:#C8FF2C;color:#0B0B0B;display:flex;align-items:center;justify-content:center;font-weight:800;transition:.3s">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section id="how" style="position:relative;z-index:1;background:#151515;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)">
+    <div style="max-width:1100px;margin:0 auto;padding:120px 48px">
+      <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);text-align:center;margin-bottom:70px">
+        <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">Tasarımı gereği basit</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-.03em">Nasıl Çalışır</h2>
+      </div>
+      <div id="steps" style="position:relative;max-width:720px;margin:0 auto"><div style="position:absolute;left:23px;top:20px;bottom:20px;width:2px;background:linear-gradient(180deg,#C8FF2C,rgba(200,255,44,.15));box-shadow:0 0 16px rgba(200,255,44,.5)"></div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 0ms,transform .7s cubic-bezier(.16,1,.3,1) 0ms;display:flex;gap:26px;align-items:flex-start;padding-bottom:44px">
+        <div style="flex-shrink:0;width:48px;height:48px;border-radius:16px;background:#0B0B0B;border:2px solid #C8FF2C;color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;box-shadow:0 0 20px rgba(200,255,44,.25);position:relative;z-index:2">01</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:7px">Sporunu seç</div>
+          <div style="font-size:16px;color:#B5B5B5;line-height:1.55;max-width:440px">40+ disiplinden seç — padelden pilatese.</div>
+        </div>
+      </div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 80ms,transform .7s cubic-bezier(.16,1,.3,1) 80ms;display:flex;gap:26px;align-items:flex-start;padding-bottom:44px">
+        <div style="flex-shrink:0;width:48px;height:48px;border-radius:16px;background:#0B0B0B;border:2px solid #C8FF2C;color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;box-shadow:0 0 20px rgba(200,255,44,.25);position:relative;z-index:2">02</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:7px">Yakındaki mekanları bul</div>
+          <div style="font-size:16px;color:#B5B5B5;line-height:1.55;max-width:440px">Canlı müsaitlikle çevrendeki mekanlara göz at.</div>
+        </div>
+      </div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 160ms,transform .7s cubic-bezier(.16,1,.3,1) 160ms;display:flex;gap:26px;align-items:flex-start;padding-bottom:44px">
+        <div style="flex-shrink:0;width:48px;height:48px;border-radius:16px;background:#0B0B0B;border:2px solid #C8FF2C;color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;box-shadow:0 0 20px rgba(200,255,44,.25);position:relative;z-index:2">03</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:7px">Anında rezerve et</div>
+          <div style="font-size:16px;color:#B5B5B5;line-height:1.55;max-width:440px">Yerini ayır ve saniyeler içinde güvenle öde.</div>
+        </div>
+      </div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 240ms,transform .7s cubic-bezier(.16,1,.3,1) 240ms;display:flex;gap:26px;align-items:flex-start;padding-bottom:0">
+        <div style="flex-shrink:0;width:48px;height:48px;border-radius:16px;background:#0B0B0B;border:2px solid #C8FF2C;color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;box-shadow:0 0 20px rgba(200,255,44,.25);position:relative;z-index:2">04</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:7px">QR ile giriş yap</div>
+          <div style="font-size:16px;color:#B5B5B5;line-height:1.55;max-width:440px">Kapıda tara ve antrenmana başla. Bu kadar basit.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ===================== MOBILE SHOWCASE ===================== -->
+  <section id="showcase" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:120px 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div style="position:relative;display:flex;justify-content:center;min-height:600px">
+      <div style="position:absolute;top:60px;width:460px;height:460px;background:radial-gradient(circle,rgba(200,255,44,.16),transparent 60%);filter:blur(30px);animation:glowPulse 7s ease-in-out infinite"></div>
+      <!-- phone 2 (venue details) -->
+      <div style="position:absolute;left:8%;top:40px;z-index:2;animation:floatY 8s ease-in-out infinite">
+        <div style="width:250px;height:512px;border-radius:40px;background:#000;border:1px solid rgba(255,255,255,.14);padding:9px;box-shadow:0 40px 90px rgba(0,0,0,.6)">
+          <div style="width:100%;height:100%;border-radius:33px;background:#0B0B0B;overflow:hidden;position:relative">
+            <div style="height:210px;background:linear-gradient(160deg,#1c2a10,#0e0e0e);position:relative;padding:14px;display:flex;flex-direction:column;justify-content:space-between">
+              <div style="position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(200,255,44,.06) 0 14px,transparent 14px 28px)"></div>
+              <div style="position:relative;display:flex;justify-content:space-between">
+                <div style="width:30px;height:30px;border-radius:50%;background:rgba(11,11,11,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:14px">‹</div>
+                <div style="width:30px;height:30px;border-radius:50%;background:rgba(11,11,11,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;color:#C8FF2C">♥</div>
+              </div>
+              <div style="position:relative;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px">Elite Padel Kulübü</div>
+            </div>
+            <div style="padding:14px">
+              <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:#B5B5B5"><span style="color:#C8FF2C;font-weight:700">★ 4.9</span> · 128 yorum · 1.2 km</div>
+              <div style="display:flex;gap:7px;margin-top:12px;flex-wrap:wrap">
+                <div style="padding:6px 11px;border-radius:100px;background:#151515;font-size:10px;color:#B5B5B5">Kapalı</div>
+                <div style="padding:6px 11px;border-radius:100px;background:#151515;font-size:10px;color:#B5B5B5">Duş</div>
+                <div style="padding:6px 11px;border-radius:100px;background:#151515;font-size:10px;color:#B5B5B5">Otopark</div>
+              </div>
+              <div style="margin-top:14px;font-size:11px;color:#B5B5B5;line-height:1.6">Profesyonel zemin, projektör aydınlatma ve yerinde ekipman kiralama imkânıyla premium kapalı kortlar.</div>
+            </div>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:14px;background:rgba(11,11,11,.9);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between">
+              <div><div style="font-size:9px;color:#B5B5B5">başlangıç</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px">₺18<span style="font-size:10px;color:#B5B5B5">/sa</span></div></div>
+              <div style="background:#C8FF2C;color:#0B0B0B;font-weight:700;font-size:12px;padding:11px 20px;border-radius:13px">Hemen rezerve et</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- phone 3 (booking) -->
+      <div style="position:relative;left:22%;top:110px;z-index:1;animation:floatY2 9s ease-in-out infinite">
+        <div style="width:250px;height:512px;border-radius:40px;background:#000;border:1px solid rgba(255,255,255,.1);padding:9px;box-shadow:0 40px 90px rgba(0,0,0,.5);opacity:.96">
+          <div style="width:100%;height:100%;border-radius:33px;background:#0B0B0B;overflow:hidden;position:relative;padding:16px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;margin-top:6px">Rezervasyonu onayla</div>
+            <div style="margin-top:16px;border-radius:16px;background:#151515;border:1px solid rgba(255,255,255,.06);padding:14px">
+              <div style="font-size:12px;font-weight:700">Elite Padel Kulübü</div>
+              <div style="font-size:10px;color:#B5B5B5;margin-top:3px">Kort 3 · Kapalı</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px">
+              <div style="padding:9px 0;text-align:center;border-radius:11px;background:#151515;font-size:11px;color:#B5B5B5">17:00</div>
+              <div style="padding:9px 0;text-align:center;border-radius:11px;background:#C8FF2C;color:#0B0B0B;font-size:11px;font-weight:700">18:00</div>
+              <div style="padding:9px 0;text-align:center;border-radius:11px;background:#151515;font-size:11px;color:#B5B5B5">19:00</div>
+              <div style="padding:9px 0;text-align:center;border-radius:11px;background:#151515;font-size:11px;color:#B5B5B5">20:00</div>
+            </div>
+            <div style="margin-top:16px;display:flex;justify-content:space-between;font-size:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.06)"><span style="color:#B5B5B5">1 saat · Kort 3</span><span style="font-weight:700">₺18,00</span></div>
+            <div style="margin-top:6px;display:flex;justify-content:space-between;font-size:12px"><span style="color:#B5B5B5">Üye fiyatı</span><span style="color:#C8FF2C;font-weight:700">−₺4,00</span></div>
+            <div style="position:absolute;bottom:16px;left:16px;right:16px;background:#C8FF2C;color:#0B0B0B;font-weight:700;font-size:13px;text-align:center;padding:14px;border-radius:14px">₺14,00 Öde · Onayla</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)">
+      <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">UYGULAMA</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-.03em;margin-bottom:24px">Premium hissettiren bir rezervasyon deneyimi.</h2>
+      <p style="font-size:18px;color:#B5B5B5;line-height:1.6;margin-bottom:30px;max-width:440px">Mekanlara göz at, gerçek zamanlı müsaitliği gör ve yerini saniyeler içinde ayır — hepsi özenle tasarlanmış koyu bir arayüzde.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:400px">
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:26px;height:26px;border-radius:8px;background:rgba(200,255,44,.14);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">✓</div><div><div style="font-weight:700;font-size:15px">Gerçek zamanlı müsaitlik</div><div style="font-size:14px;color:#B5B5B5">Bir daha asla dolu bir korta gitme.</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:26px;height:26px;border-radius:8px;background:rgba(200,255,44,.14);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">✓</div><div><div style="font-weight:700;font-size:15px">Anında QR ile giriş</div><div style="font-size:14px;color:#B5B5B5">Resepsiyonu tamamen atla.</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:26px;height:26px;border-radius:8px;background:rgba(200,255,44,.14);color:#C8FF2C;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">✓</div><div><div style="font-weight:700;font-size:15px">Üyelere özel fiyatlar</div><div style="font-size:14px;color:#B5B5B5">Her partner mekanda özel fiyatlar.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOR BUSINESSES ===================== -->
+  <section id="business" style="position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:60px 48px 120px">
+    <div id="biz-card" style="border-radius:28px;background:linear-gradient(150deg,#151515,#0e0e0e);border:1px solid rgba(255,255,255,.08);padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-100px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,255,44,.14),transparent 60%);filter:blur(30px)"></div>
+      <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);position:relative">
+        <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">PARTNERLER İÇİN</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:46px;line-height:1.06;letter-spacing:-.03em;margin-bottom:20px">Spor İşletmeni Büyüt</h2>
+        <p style="font-size:17px;color:#B5B5B5;line-height:1.6;margin-bottom:30px;max-width:420px">Mekanını listele, boş saatleri doldur ve her şeyi tek bir panelden yönet. Kurulum ücreti yok.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:440px;margin-bottom:34px">
+          <div style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600"><span style="color:#C8FF2C">→</span> Daha fazla müşteri</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600"><span style="color:#C8FF2C">→</span> Online rezervasyon</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600"><span style="color:#C8FF2C">→</span> Takvimi yönet</div>
+          <div style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600"><span style="color:#C8FF2C">→</span> Doluluğu artır</div>
+        </div>
+        <a href="#download" style="display:inline-flex;font-size:16px;font-weight:700;color:#0B0B0B;background:#C8FF2C;padding:15px 28px;border-radius:15px;box-shadow:0 12px 40px rgba(200,255,44,.24)" style-hover="transform:translateY(-2px)">Partner Ol →</a>
+      </div>
+      <!-- analytics dashboard -->
+      <div style="position:relative;border-radius:22px;background:rgba(11,11,11,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);padding:24px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px">Doluluk</div>
+          <div style="font-size:11px;color:#C8FF2C;padding:4px 10px;border-radius:100px;background:rgba(200,255,44,.1);font-weight:700">bu ay +%32</div>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:9px;height:150px">
+          <div style="flex:1;height:42%;background:rgba(255,255,255,.1);border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:58%;background:rgba(255,255,255,.12);border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:50%;background:rgba(255,255,255,.1);border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:72%;background:rgba(200,255,44,.35);border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:64%;background:rgba(255,255,255,.12);border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:88%;background:#C8FF2C;border-radius:8px 8px 3px 3px"></div>
+          <div style="flex:1;height:78%;background:rgba(200,255,44,.35);border-radius:8px 8px 3px 3px"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px">
+          <div style="border-radius:14px;background:#151515;border:1px solid rgba(255,255,255,.06);padding:14px"><div style="font-size:11px;color:#B5B5B5">Rezervasyon</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px">1,284</div></div>
+          <div style="border-radius:14px;background:#151515;border:1px solid rgba(255,255,255,.06);padding:14px"><div style="font-size:11px;color:#B5B5B5">Gelir</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px">₺21,4B</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section style="position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:60px 48px 120px">
+    <div data-reveal="" style="transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);text-align:center;margin-bottom:60px">
+      <div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C8FF2C;font-weight:700;margin-bottom:16px">Sporcular tarafından seviliyor</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-.03em">İnsanlar Sporgate ile daha çok hareket ediyor.</h2>
+    </div>
+    <div id="testimonials" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 0ms,transform .7s cubic-bezier(.16,1,.3,1) 0ms;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);padding:32px 30px;display:flex;flex-direction:column">
+        <div style="color:#C8FF2C;font-size:16px;letter-spacing:3px;margin-bottom:20px">★★★★★</div>
+        <p style="font-size:17px;line-height:1.6;font-weight:500;flex:1">“Öğle molamda bir dakikadan kısa sürede kort ayırttım. Sporgate benim için üç ayrı uygulamanın yerini tamamen aldı.”</p>
+        <div style="display:flex;align-items:center;gap:13px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(160deg,#1e2a12,#0B0B0B);border:1px solid rgba(255,255,255,.1)"></div>
+          <div><div style="font-weight:700;font-size:15px">Maya R.</div><div style="font-size:13px;color:#B5B5B5">Padel tutkunu</div></div>
+        </div>
+      </div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 90ms,transform .7s cubic-bezier(.16,1,.3,1) 90ms;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);padding:32px 30px;display:flex;flex-direction:column">
+        <div style="color:#C8FF2C;font-size:16px;letter-spacing:3px;margin-bottom:20px">★★★★★</div>
+        <p style="font-size:17px;line-height:1.6;font-weight:500;flex:1">“Üye fiyatları kendini amorti ediyor. Artık üyeliklerle uğraşmadan dört farklı salonda antrenman yapıyorum.”</p>
+        <div style="display:flex;align-items:center;gap:13px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(160deg,#122232,#0B0B0B);border:1px solid rgba(255,255,255,.1)"></div>
+          <div><div style="font-weight:700;font-size:15px">Daniel K.</div><div style="font-size:13px;color:#B5B5B5">Maraton koşucusu</div></div>
+        </div>
+      </div>
+      <div data-reveal style="transition:opacity .7s cubic-bezier(.16,1,.3,1) 180ms,transform .7s cubic-bezier(.16,1,.3,1) 180ms;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(20px);padding:32px 30px;display:flex;flex-direction:column">
+        <div style="color:#C8FF2C;font-size:16px;letter-spacing:3px;margin-bottom:20px">★★★★★</div>
+        <p style="font-size:17px;line-height:1.6;font-weight:500;flex:1">“Harika bir uygulama, zahmetsiz rezervasyon ve QR ile giriş sayesinde resepsiyonda hiç beklemiyorum. Gerçekten premium hissettiriyor.”</p>
+        <div style="display:flex;align-items:center;gap:13px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(160deg,#241a2a,#0B0B0B);border:1px solid rgba(255,255,255,.1)"></div>
+          <div><div style="font-weight:700;font-size:15px">Sofia L.</div><div style="font-size:13px;color:#B5B5B5">Yoga & pilates</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DOWNLOAD ===================== -->
+  <section id="download" style="position:relative;z-index:1;padding:0 48px 120px">
+    <div style="max-width:1320px;margin:0 auto;border-radius:32px;background:linear-gradient(150deg,#182310,#0B0B0B 65%);border:1px solid rgba(200,255,44,.18);padding:80px 48px;text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:640px;height:400px;background:radial-gradient(circle,rgba(200,255,44,.22),transparent 60%);filter:blur(40px);animation:glowPulse 6s ease-in-out infinite"></div>
+      <div style="position:relative;max-width:640px;margin:0 auto">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:60px;line-height:1.03;letter-spacing:-.035em;margin-bottom:20px">Sporgate'i Bugün İndir</h2>
+        <p style="font-size:19px;color:#B5B5B5;margin-bottom:40px">Bir sonraki antrenmanın bir dokunuş uzağında. iOS ve Android'de.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <a href="#" style="display:flex;align-items:center;gap:12px;background:#fff;color:#0B0B0B;padding:14px 26px;border-radius:16px" style-hover="transform:translateY(-2px)"><div style="width:26px;height:26px;border-radius:7px;background:#0B0B0B"></div><div style="text-align:left"><div style="font-size:10px;line-height:1">İndir</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;line-height:1.1">App Store</div></div></a>
+          <a href="#" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;padding:14px 26px;border-radius:16px" style-hover="background:rgba(255,255,255,.12);transform:translateY(-2px)"><div style="width:26px;height:26px;border-radius:7px;background:#C8FF2C"></div><div style="text-align:left"><div style="font-size:10px;line-height:1;color:#B5B5B5">BURADAN İNDİR</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;line-height:1.1">Google Play</div></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);padding:70px 48px 40px">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px">
+          <div style="width:30px;height:30px;border-radius:9px;background:#C8FF2C;display:flex;align-items:center;justify-content:center"><div style="width:11px;height:11px;border-radius:50%;background:#0B0B0B"></div></div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em">spor<span style="font-weight:400">gate</span></span>
+        </div>
+        <p style="font-size:15px;color:#B5B5B5;max-width:280px;line-height:1.6">Sporu erişilebilir kılıyoruz. Her mekanı tek uygulamadan keşfet ve anında rezerve et.</p>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <a href="#" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:13px;color:#B5B5B5" style-hover="border-color:#C8FF2C;color:#C8FF2C">IG</a>
+          <a href="#" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:13px;color:#B5B5B5" style-hover="border-color:#C8FF2C;color:#C8FF2C">in</a>
+          <a href="#" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:13px;color:#B5B5B5" style-hover="border-color:#C8FF2C;color:#C8FF2C">TT</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:18px">Şirket</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#B5B5B5">
+          <a href="#" style-hover="color:#fff">Hakkımızda</a>
+          <a href="#" style-hover="color:#fff">Partnerler</a>
+          <a href="#" style-hover="color:#fff">Fiyatlandırma</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:18px">Destek</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#B5B5B5">
+          <a href="#" style-hover="color:#fff">Yardım Merkezi</a>
+          <a href="#" style-hover="color:#fff">İletişim</a>
+          <a href="#" style-hover="color:#fff">Topluluk</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:18px">Yasal</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:#B5B5B5">
+          <a href="#" style-hover="color:#fff">Gizlilik</a>
+          <a href="#" style-hover="color:#fff">Şartlar</a>
+          <a href="#" style-hover="color:#fff">Çerezler</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1320px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <span style="font-size:14px;color:#B5B5B5">© 2026 Sporgate. Tüm hakları saklıdır.</span>
+      <span style="font-size:14px;color:#B5B5B5">Hareket edenler için tasarlandı.</span>
+    </div>
+  </footer>
+
+</div>
+
+
+
+
+<script>
+(function(){
+  function init(){
+    document.querySelectorAll('[style-hover]').forEach(function(el){
+      var base=el.getAttribute('style')||'';var hov=el.getAttribute('style-hover');
+      el.addEventListener('mouseenter',function(){el.setAttribute('style',base+';transition:all .25s ease;'+hov);});
+      el.addEventListener('mouseleave',function(){el.setAttribute('style',base+';transition:all .25s ease');});
+    });
+    var els=Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    els.forEach(function(el){var tr=el.style.transition;el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(26px)';void el.offsetHeight;el.style.transition=tr;});
+    function show(el){el.style.opacity='1';el.style.transform='none';}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+      els.forEach(function(el){io.observe(el);});
+    } else { els.forEach(show); }
+    setTimeout(function(){els.forEach(show);},3500);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+</body></html>
